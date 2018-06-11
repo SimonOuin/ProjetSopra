@@ -71,6 +71,7 @@ public class FormationRestController {
 		return response;
 	}
 	
+	
 	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteFormation(@PathVariable(name = "id") Long id){
 		Optional<Formation> opt = formationRepository.findById(id);

@@ -70,6 +70,7 @@ public class MatiereRestController {
 		return response;
 	}
 	
+	
 	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteMatiere(@PathVariable(name = "id") Long id){
 		Optional<Matiere> opt = matiereRepository.findById(id);

@@ -6,6 +6,9 @@ import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class CompetencePk implements Serializable {
 	
@@ -21,6 +24,7 @@ public class CompetencePk implements Serializable {
 
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public Formateur getFormateur() {
 		return formateur;
 	}
@@ -29,6 +33,7 @@ public class CompetencePk implements Serializable {
 		this.formateur = formateur;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public Matiere getMatiere() {
 		return matiere;
 	}

@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name="ressource_humaine_roles")
 public class RessourceHumaineRole {
@@ -26,6 +29,7 @@ public class RessourceHumaineRole {
 		// TODO Auto-generated constructor stub
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public Integer getId() {
 		return id;
 	}
@@ -34,6 +38,7 @@ public class RessourceHumaineRole {
 		this.id = id;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public Role getRole() {
 		return role;
 	}
@@ -42,6 +47,7 @@ public class RessourceHumaineRole {
 		this.role = role;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public RessourceHumaine getRessourceHumaine() {
 		return ressourceHumaine;
 	}

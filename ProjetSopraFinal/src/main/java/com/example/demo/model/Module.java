@@ -14,6 +14,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Module {
 	
@@ -31,6 +34,7 @@ public class Module {
 
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@SequenceGenerator(name = "moduleSeq", sequenceName = "module_seq", allocationSize = 1, initialValue = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "moduleSeq")
@@ -45,6 +49,7 @@ public class Module {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	@OneToOne
 	public Salle getSalle() {
 		return salle;
@@ -55,6 +60,7 @@ public class Module {
 		this.salle = salle;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@ManyToOne
 	@JoinColumn (name = "formateur")
 	public Formateur getFormateur() {
@@ -66,6 +72,7 @@ public class Module {
 		this.formateur = formateur;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@ManyToOne
 	@JoinColumn (name = "matiere")
 	public Matiere getMatiere() {
@@ -77,6 +84,7 @@ public class Module {
 		this.matiere = matiere;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@OneToOne
 	public VideoProjecteur getVideoProjecteur() {
 		return videoProjecteur;
@@ -87,6 +95,7 @@ public class Module {
 		this.videoProjecteur = videoProjecteur;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Temporal (TemporalType.DATE)
 	public Date getDateDebut() {
 		return dateDebut;
@@ -97,7 +106,7 @@ public class Module {
 		this.dateDebut = dateDebut;
 	}
 	
-	
+	@JsonView(JsonViews.Common.class)
 	@ManyToOne
 	@JoinColumn (name = "formation")
 	public Formation getFormation() {
@@ -108,6 +117,7 @@ public class Module {
 		this.formation = formation;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Version
 	public int getVersion() {
 		return version;

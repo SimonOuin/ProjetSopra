@@ -6,6 +6,9 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("F")
 public class Formateur extends RessourceHumaine{
@@ -17,6 +20,7 @@ public class Formateur extends RessourceHumaine{
 
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@OneToMany (mappedBy = "formateur")
 	public Set<Module> getModules() {
 		return modules;
@@ -26,6 +30,7 @@ public class Formateur extends RessourceHumaine{
 		this.modules = modules;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@OneToMany(mappedBy = "key.formateur")
 	public Set<Competence> getCompetences() {
 		return competences;

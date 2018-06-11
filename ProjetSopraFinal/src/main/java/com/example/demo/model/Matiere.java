@@ -10,6 +10,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Matiere {
 	private Long id;
@@ -28,6 +31,7 @@ public class Matiere {
 		super();
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@SequenceGenerator(name = "matiereSeq", sequenceName = "matiere_seq", allocationSize = 1, initialValue = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "matiereSeq")
@@ -42,6 +46,7 @@ public class Matiere {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public String getTitre() {
 		return titre;
 	}
@@ -52,6 +57,7 @@ public class Matiere {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public Integer getDureeProg() {
 		return dureeProg;
 	}
@@ -62,6 +68,7 @@ public class Matiere {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public String getObjectif() {
 		return objectif;
 	}
@@ -72,6 +79,7 @@ public class Matiere {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public String getPrerequis() {
 		return prerequis;
 	}
@@ -82,6 +90,7 @@ public class Matiere {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public String getContenu() {
 		return contenu;
 	}
@@ -91,6 +100,7 @@ public class Matiere {
 		this.contenu = contenu;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@OneToMany (mappedBy = "key.matiere")
 	public Set<Competence> getCompetences() {
 		return competences;
@@ -101,7 +111,7 @@ public class Matiere {
 		this.competences = competences;
 	}
 	
-	
+	@JsonView(JsonViews.Common.class)
 	@OneToMany (mappedBy = "matiere")
 	public Set<Module> getModules() {
 		return modules;
@@ -111,6 +121,7 @@ public class Matiere {
 		this.modules = modules;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Version
 	public int getVersion() {
 		return version;

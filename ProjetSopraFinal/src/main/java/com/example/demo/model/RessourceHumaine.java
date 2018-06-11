@@ -17,6 +17,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "ressources_humaines")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -47,6 +50,7 @@ public abstract class RessourceHumaine {
 		this.mdp=rh.mdp;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@SequenceGenerator(name = "rhSeq", sequenceName = "rh_seq", allocationSize = 1, initialValue = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rhSeq")
@@ -58,6 +62,7 @@ public abstract class RessourceHumaine {
 		this.id = id;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public String getNom() {
 		return nom;
 	}
@@ -66,6 +71,7 @@ public abstract class RessourceHumaine {
 		this.nom = nom;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public String getPrenom() {
 		return prenom;
 	}
@@ -74,6 +80,7 @@ public abstract class RessourceHumaine {
 		this.prenom = prenom;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public Integer getTel() {
 		return tel;
 	}
@@ -82,6 +89,7 @@ public abstract class RessourceHumaine {
 		this.tel = tel;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public String getEmail() {
 		return email;
 	}
@@ -90,6 +98,7 @@ public abstract class RessourceHumaine {
 		this.email = email;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public String getLogin() {
 		return login;
 	}
@@ -98,6 +107,7 @@ public abstract class RessourceHumaine {
 		this.login = login;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public String getMdp() {
 		return mdp;
 	}
@@ -106,6 +116,7 @@ public abstract class RessourceHumaine {
 		this.mdp = mdp;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Embedded
 	public Adresse getAdresse() {
 		return adresse;
@@ -115,6 +126,7 @@ public abstract class RessourceHumaine {
 		this.adresse = adresse;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@OneToMany(mappedBy = "ressourceHumaine", fetch = FetchType.EAGER)
 	public Set<RessourceHumaineRole> getRoles() {
 		return roles;
@@ -124,6 +136,7 @@ public abstract class RessourceHumaine {
 		this.roles = roles;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Version
 	public int getVersion() {
 		return version;

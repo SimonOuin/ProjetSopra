@@ -2,6 +2,9 @@ package com.example.demo.model;
 
 import javax.persistence.Embeddable;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class Adresse {
 	
@@ -17,6 +20,7 @@ public class Adresse {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public Integer getNumero() {
 		return numero;
 	}
@@ -27,6 +31,7 @@ public class Adresse {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public String getRue() {
 		return rue;
 	}
@@ -37,6 +42,7 @@ public class Adresse {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public Integer getCp() {
 		return cp;
 	}
@@ -47,6 +53,7 @@ public class Adresse {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public String getVille() {
 		return ville;
 	}
@@ -57,6 +64,7 @@ public class Adresse {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	public String getPays() {
 		return pays;
 	}

@@ -6,6 +6,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Version;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Competence {
 	
@@ -19,6 +22,7 @@ public class Competence {
 
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Enumerated (EnumType.STRING)
 	public Niveau getNiveau() {
 		return niveau;
@@ -28,6 +32,7 @@ public class Competence {
 		this.niveau = niveau;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	public CompetencePk getKey() {
 		return key;
 	}
@@ -36,6 +41,7 @@ public class Competence {
 		this.key = key;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Version
 	public int getVersion() {
 		return version;

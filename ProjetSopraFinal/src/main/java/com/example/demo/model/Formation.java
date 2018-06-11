@@ -15,6 +15,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Formation {
 	private Long id;
@@ -31,7 +34,7 @@ public class Formation {
 
 	}
 	
-	
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@SequenceGenerator(name = "formationSeq", sequenceName = "formation_seq", allocationSize = 1, initialValue = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "formationSeq")
@@ -46,6 +49,7 @@ public class Formation {
 	}
 
 
+	@JsonView(JsonViews.Common.class)
 	@OneToMany (mappedBy = "formation")
 	public Set<Stagiaire> getStagiaires() {
 		return stagiaires;
@@ -56,6 +60,7 @@ public class Formation {
 		this.stagiaires = stagiaires;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@OneToMany (mappedBy = "formation")
 	public Set<Module> getModules() {
 		return modules;
@@ -66,6 +71,7 @@ public class Formation {
 		this.modules = modules;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Temporal (TemporalType.DATE)
 	public Date getDateDebut() {
 		return dateDebut;
@@ -75,7 +81,7 @@ public class Formation {
 	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
-
+	@JsonView(JsonViews.Common.class)
 	@Temporal (TemporalType.DATE)
 	public Date getDateFin() {
 		return dateFin;
@@ -86,6 +92,7 @@ public class Formation {
 		this.dateFin = dateFin;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@ManyToOne
 	@JoinColumn (name = "gestionnaire")
 	public Gestionnaire getGestionnaire() {
@@ -97,6 +104,7 @@ public class Formation {
 		this.gestionnaire = gestionnaire;
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Version
 	public int getVersion() {
 		return version;

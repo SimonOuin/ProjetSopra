@@ -34,23 +34,6 @@ public class MaterielRestController {
 	@Autowired
 	private MaterielRepository materielRepository;
 
-	@JsonView(JsonViews.Common.class)
-	@RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
-	public ResponseEntity<List<Materiel>> findAll() {
-		return new ResponseEntity<List<Materiel>>(materielRepository.findAll(), HttpStatus.OK);
-	}
-	
-	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{code}", method = RequestMethod.GET)
-	public ResponseEntity<Materiel> findById(@PathVariable(name = "code") Long code) {
-		Optional<Materiel> opt = materielRepository.findById(code);
-		if (opt.isPresent()) {
-			return new ResponseEntity<Materiel>(opt.get(), HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}
-	}
-
 	@RequestMapping(path = { "/ordinateur", "/ordinateur/" }, method = RequestMethod.POST)
 	public ResponseEntity<Void> createOrdinateur(@RequestBody Ordinateur ordinateur, BindingResult br,
 			UriComponentsBuilder ucb) {
@@ -68,7 +51,7 @@ public class MaterielRestController {
 		}
 		return response;
 	}
-	
+
 	@RequestMapping(path = { "/videoprojecteur", "/videoprojecteur/" }, method = RequestMethod.POST)
 	public ResponseEntity<Void> createVideoProjecteur(@RequestBody VideoProjecteur videoProjecteur, BindingResult br,
 			UriComponentsBuilder ucb) {
@@ -86,10 +69,9 @@ public class MaterielRestController {
 		}
 		return response;
 	}
-	
+
 	@RequestMapping(path = { "/salle", "/salle/" }, method = RequestMethod.POST)
-	public ResponseEntity<Void> createSalle(@RequestBody Salle salle, BindingResult br,
-			UriComponentsBuilder ucb) {
+	public ResponseEntity<Void> createSalle(@RequestBody Salle salle, BindingResult br, UriComponentsBuilder ucb) {
 		ResponseEntity<Void> response = null;
 		if (br.hasErrors()) {
 			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -104,7 +86,7 @@ public class MaterielRestController {
 		}
 		return response;
 	}
-	
+
 	@RequestMapping(path = { "/ordinateur", "/ordinateur/" }, method = RequestMethod.PUT)
 	public ResponseEntity<Materiel> updateOrdinateur(@RequestBody Ordinateur ordinateur, BindingResult br) {
 		ResponseEntity<Materiel> response = null;
@@ -120,16 +102,17 @@ public class MaterielRestController {
 			((Ordinateur) materielEnBase).setProcesseur(ordinateur.getProcesseur());
 			((Ordinateur) materielEnBase).setRam(ordinateur.getRam());
 			materielRepository.save(materielEnBase);
-			response = new ResponseEntity<Materiel> (opt.get(), HttpStatus.OK);
+			response = new ResponseEntity<Materiel>(opt.get(), HttpStatus.OK);
 		} else {
-			response= new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		
+
 		return response;
 	}
-	
+
 	@RequestMapping(path = { "/videoprojecteur", "/videoprojecteur/" }, method = RequestMethod.PUT)
-	public ResponseEntity<Materiel> updateVideoProjecteur(@RequestBody VideoProjecteur videoProjecteur, BindingResult br) {
+	public ResponseEntity<Materiel> updateVideoProjecteur(@RequestBody VideoProjecteur videoProjecteur,
+			BindingResult br) {
 		ResponseEntity<Materiel> response = null;
 		if (videoProjecteur.getCode() == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -139,14 +122,14 @@ public class MaterielRestController {
 			Materiel materielEnBase = opt.get();
 			materielEnBase.setCout(videoProjecteur.getCout());
 			materielRepository.save(materielEnBase);
-			response = new ResponseEntity<Materiel> (opt.get(), HttpStatus.OK);
+			response = new ResponseEntity<Materiel>(opt.get(), HttpStatus.OK);
 		} else {
-			response= new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		
+
 		return response;
 	}
-	
+
 	@RequestMapping(path = { "/salle", "/salle/" }, method = RequestMethod.PUT)
 	public ResponseEntity<Materiel> updateSalle(@RequestBody Salle salle, BindingResult br) {
 		ResponseEntity<Materiel> response = null;
@@ -158,22 +141,50 @@ public class MaterielRestController {
 			Materiel materielEnBase = opt.get();
 			materielEnBase.setCout(salle.getCout());
 			materielRepository.save(materielEnBase);
-			response = new ResponseEntity<Materiel> (opt.get(), HttpStatus.OK);
+			response = new ResponseEntity<Materiel>(opt.get(), HttpStatus.OK);
 		} else {
-			response= new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		
+
 		return response;
 	}
-	
-	@RequestMapping(value="/{code}", method= RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable(name = "code") Long code){
+
+	@RequestMapping(value = "/{code}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable(name = "code") Long code) {
 		Optional<Materiel> opt = materielRepository.findById(code);
 		if (opt.isPresent()) {
 			materielRepository.deleteById(code);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
+	public ResponseEntity<List<Materiel>> findAll() {
+		return new ResponseEntity<List<Materiel>>(materielRepository.findAll(), HttpStatus.OK);
+	}
+
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{code}", method = RequestMethod.GET)
+	public ResponseEntity<Materiel> findByCode(@PathVariable(name = "code") Long code) {
+		Optional<Materiel> opt = materielRepository.findByCode(code);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Materiel>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{cout}", method = RequestMethod.GET)
+	public ResponseEntity<Materiel> findBycout(@PathVariable(name = "cout") Integer cout) {
+		Optional<Materiel> opt = materielRepository.findByCout(cout);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Materiel>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
 }

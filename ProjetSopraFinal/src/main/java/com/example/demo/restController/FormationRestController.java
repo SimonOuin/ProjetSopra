@@ -1,5 +1,6 @@
 package com.example.demo.restController;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.demo.jsonview.JsonViews;
 import com.example.demo.model.Formation;
-import com.example.demo.model.Matiere;
+import com.example.demo.model.Module;
+import com.example.demo.model.Stagiaire;
 import com.example.demo.repository.FormationRepository;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -70,17 +72,16 @@ public class FormationRestController {
 		}
 		return response;
 	}
-	
-	
-	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
-	public ResponseEntity<Void> deleteFormation(@PathVariable(name = "id") Long id){
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> deleteFormation(@PathVariable(name = "id") Long id) {
 		Optional<Formation> opt = formationRepository.findById(id);
 		if (opt.isPresent()) {
 			formationRepository.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}	
+		}
 	}
 
 	@JsonView(JsonViews.Common.class)
@@ -93,6 +94,50 @@ public class FormationRestController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Formation> findById(@PathVariable(name = "id") Long id) {
 		Optional<Formation> opt = formationRepository.findById(id);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Formation>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{stagiaire}", method = RequestMethod.GET)
+	public ResponseEntity<Formation> findByStagiaire(@PathVariable(name = "stagiaire") Stagiaire stagiaire) {
+		Optional<Formation> opt = formationRepository.findByStagiaires(stagiaire);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Formation>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{module}", method = RequestMethod.GET)
+	public ResponseEntity<Formation> findByModule(@PathVariable(name = "module") Module module) {
+		Optional<Formation> opt = formationRepository.findByModules(module);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Formation>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{dateDebut}", method = RequestMethod.GET)
+	public ResponseEntity<Formation> findByDateDebut(@PathVariable(name = "dateDebut") Date dateDebut) {
+		Optional<Formation> opt = formationRepository.findByDateDebut(dateDebut);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Formation>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{dateFin}", method = RequestMethod.GET)
+	public ResponseEntity<Formation> findByDateFin(@PathVariable(name = "dateFin") Date dateFin) {
+		Optional<Formation> opt = formationRepository.findByDateFin(dateFin);
 		if (opt.isPresent()) {
 			return new ResponseEntity<Formation>(opt.get(), HttpStatus.OK);
 		} else {

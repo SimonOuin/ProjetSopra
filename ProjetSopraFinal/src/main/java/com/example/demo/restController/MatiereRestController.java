@@ -98,4 +98,59 @@ public class MatiereRestController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{titre}", method = RequestMethod.GET)
+	public ResponseEntity<Matiere> findByTitre(@PathVariable(name = "titre") String titre) {
+		Optional<Matiere> opt = matiereRepository.findByTitre(titre);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Matiere>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{dureeProg}", method = RequestMethod.GET)
+	public ResponseEntity<Matiere> findByDureeProg(@PathVariable(name = "dureeProg") Integer dureeProg) {
+		Optional<Matiere> opt = matiereRepository.findByDureeProg(dureeProg);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Matiere>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{objectif}", method = RequestMethod.GET)
+	public ResponseEntity<Matiere> findByObjectif(@PathVariable(name = "objectif") String objectif) {
+		Optional<Matiere> opt = matiereRepository.findByObjectif(objectif);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Matiere>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{prerequis}", method = RequestMethod.GET)
+	public ResponseEntity<Matiere> findByPrerequis(@PathVariable(name = "prerequis") String prerequis) {
+		Optional<Matiere> opt = matiereRepository.findByPrerequis(prerequis);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Matiere>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{contenu}", method = RequestMethod.GET)
+	public ResponseEntity<Matiere> findByContenu(@PathVariable(name = "contenu") String contenu) {
+		Optional<Matiere> opt = matiereRepository.findByContenu(contenu);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Matiere>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
 }

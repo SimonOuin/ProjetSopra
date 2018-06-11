@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.demo.jsonview.JsonViews;
+import com.example.demo.model.Adresse;
 import com.example.demo.model.Formateur;
 import com.example.demo.model.Gestionnaire;
 import com.example.demo.model.RessourceHumaine;
@@ -214,11 +215,9 @@ public class RessourceHumaineRestController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		
+		}	
 	}
 	
-
 	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
 	public ResponseEntity<List<RessourceHumaine>> findAll() {
@@ -236,5 +235,80 @@ public class RessourceHumaineRestController {
 		}
 	}
 	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{nom}", method = RequestMethod.GET)
+	public ResponseEntity<RessourceHumaine> findByNom(@PathVariable(name = "nom") String nom) {
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByNom(nom);
+		if (opt.isPresent()) {
+			return new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
 	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{prenom}", method = RequestMethod.GET)
+	public ResponseEntity<RessourceHumaine> findByPrenom(@PathVariable(name = "prenom") String prenom) {
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByPrenom(prenom);
+		if (opt.isPresent()) {
+			return new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{adresse}", method = RequestMethod.GET)
+	public ResponseEntity<RessourceHumaine> findByAdresse(@PathVariable(name = "adresse") Adresse adresse) {
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByAdresse(adresse);
+		if (opt.isPresent()) {
+			return new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{tel}", method = RequestMethod.GET)
+	public ResponseEntity<RessourceHumaine> findByTel(@PathVariable(name = "tel") Integer tel) {
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByTel(tel);
+		if (opt.isPresent()) {
+			return new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{email}", method = RequestMethod.GET)
+	public ResponseEntity<RessourceHumaine> findByEmail(@PathVariable(name = "email") String email) {
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByEmail(email);
+		if (opt.isPresent()) {
+			return new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{login}", method = RequestMethod.GET)
+	public ResponseEntity<RessourceHumaine> findByLogin(@PathVariable(name = "login") String login) {
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByLogin(login);
+		if (opt.isPresent()) {
+			return new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{mdp}", method = RequestMethod.GET)
+	public ResponseEntity<RessourceHumaine> findByMdp(@PathVariable(name = "mdp") String mdp) {
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByMdp(mdp);
+		if (opt.isPresent()) {
+			return new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
 }

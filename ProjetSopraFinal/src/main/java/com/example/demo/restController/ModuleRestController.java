@@ -105,7 +105,7 @@ public class ModuleRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{salle}", method = RequestMethod.GET)
+	@RequestMapping(value = "/salle/{salle}", method = RequestMethod.GET)
 	public ResponseEntity<Module> findBySalle(@PathVariable(name = "salle") Salle salle) {
 		Optional<Module> opt = moduleRepository.findBySalle(salle);
 		if (opt.isPresent()) {
@@ -116,7 +116,7 @@ public class ModuleRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{formateur}", method = RequestMethod.GET)
+	@RequestMapping(value = "/formateur/{formateur}", method = RequestMethod.GET)
 	public ResponseEntity<Module> findByFormateur(@PathVariable(name = "formateur") Formateur formateur) {
 		Optional<Module> opt = moduleRepository.findByFormateur(formateur);
 		if (opt.isPresent()) {
@@ -127,7 +127,7 @@ public class ModuleRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{matiere}", method = RequestMethod.GET)
+	@RequestMapping(value = "/matiere/{matiere}", method = RequestMethod.GET)
 	public ResponseEntity<Module> findByMatiere(@PathVariable(name = "matiere") Matiere matiere) {
 		Optional<Module> opt = moduleRepository.findByMatiere(matiere);
 		if (opt.isPresent()) {
@@ -138,7 +138,7 @@ public class ModuleRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{DateDebut}", method = RequestMethod.GET)
+	@RequestMapping(value = "/debut/{DateDebut}", method = RequestMethod.GET)
 	public ResponseEntity<Module> findByDateDebut(@PathVariable(name = "DateDebut") Date DateDebut) {
 		Optional<Module> opt = moduleRepository.findByDateDebut(DateDebut);
 		if (opt.isPresent()) {

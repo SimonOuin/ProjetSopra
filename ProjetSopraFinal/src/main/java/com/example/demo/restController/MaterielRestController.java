@@ -178,7 +178,7 @@ public class MaterielRestController {
 	}
 
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{cout}", method = RequestMethod.GET)
+	@RequestMapping(value = "/cout/{cout}", method = RequestMethod.GET)
 	public ResponseEntity<Materiel> findBycout(@PathVariable(name = "cout") Integer cout) {
 		Optional<Materiel> opt = materielRepository.findByCout(cout);
 		if (opt.isPresent()) {

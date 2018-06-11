@@ -102,7 +102,7 @@ public class FormationRestController {
 	}
 
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{stagiaire}", method = RequestMethod.GET)
+	@RequestMapping(value = "/stagiaire/{stagiaire}", method = RequestMethod.GET)
 	public ResponseEntity<Formation> findByStagiaire(@PathVariable(name = "stagiaire") Stagiaire stagiaire) {
 		Optional<Formation> opt = formationRepository.findByStagiaires(stagiaire);
 		if (opt.isPresent()) {
@@ -113,7 +113,7 @@ public class FormationRestController {
 	}
 
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{module}", method = RequestMethod.GET)
+	@RequestMapping(value = "/module/{module}", method = RequestMethod.GET)
 	public ResponseEntity<Formation> findByModule(@PathVariable(name = "module") Module module) {
 		Optional<Formation> opt = formationRepository.findByModules(module);
 		if (opt.isPresent()) {
@@ -124,7 +124,7 @@ public class FormationRestController {
 	}
 
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{dateDebut}", method = RequestMethod.GET)
+	@RequestMapping(value = "/debut/{dateDebut}", method = RequestMethod.GET)
 	public ResponseEntity<Formation> findByDateDebut(@PathVariable(name = "dateDebut") Date dateDebut) {
 		Optional<Formation> opt = formationRepository.findByDateDebut(dateDebut);
 		if (opt.isPresent()) {
@@ -135,7 +135,7 @@ public class FormationRestController {
 	}
 
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{dateFin}", method = RequestMethod.GET)
+	@RequestMapping(value = "/fin/{dateFin}", method = RequestMethod.GET)
 	public ResponseEntity<Formation> findByDateFin(@PathVariable(name = "dateFin") Date dateFin) {
 		Optional<Formation> opt = formationRepository.findByDateFin(dateFin);
 		if (opt.isPresent()) {

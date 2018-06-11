@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -24,6 +25,7 @@ public class Competence {
 
 	@JsonView(JsonViews.Common.class)
 	@Enumerated (EnumType.STRING)
+	@Column(name = "niveau", length = 15)
 	public Niveau getNiveau() {
 		return niveau;
 	}

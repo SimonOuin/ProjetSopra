@@ -100,7 +100,7 @@ public class CompetenceRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{niveau}", method = RequestMethod.GET)
+	@RequestMapping(value = "/niveau/{niveau}", method = RequestMethod.GET)
 	public ResponseEntity<Competence> findByNiveau(@PathVariable(name = "niveau") String niveau) {
 		Optional<Competence> opt = competenceRepository.findByNiveau(niveau);
 		if (opt.isPresent()) {

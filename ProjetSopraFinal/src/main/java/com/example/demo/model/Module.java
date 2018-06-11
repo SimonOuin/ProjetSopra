@@ -45,7 +45,7 @@ public class Module {
 	}
 
 
-
+	@OneToOne
 	public Salle getSalle() {
 		return salle;
 	}
@@ -55,7 +55,8 @@ public class Module {
 		this.salle = salle;
 	}
 
-
+	@ManyToOne
+	@JoinColumn (name = "formateur")
 	public Formateur getFormateur() {
 		return formateur;
 	}

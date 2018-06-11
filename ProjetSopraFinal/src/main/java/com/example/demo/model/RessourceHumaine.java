@@ -1,4 +1,4 @@
-package model;
+package com.example.demo.model;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -36,7 +37,8 @@ public abstract class RessourceHumaine {
 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE) // a completer
+	@SequenceGenerator(name = "rhSeq", sequenceName = "rh_seq", allocationSize = 1, initialValue = 10)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rhSeq")
 	public Integer getId() {
 		return id;
 	}

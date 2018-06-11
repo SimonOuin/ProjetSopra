@@ -1,4 +1,4 @@
-package model;
+package com.example.demo.model;
 
 import java.util.Date;
 
@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
@@ -31,7 +32,8 @@ public class Module {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE) // a completer
+	@SequenceGenerator(name = "moduleSeq", sequenceName = "module_seq", allocationSize = 1, initialValue = 10)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "moduleSeq")
 	public Integer getId() {
 		return id;
 	}

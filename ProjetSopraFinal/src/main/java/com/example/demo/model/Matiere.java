@@ -1,4 +1,4 @@
-package model;
+package com.example.demo.model;
 
 import java.util.Set;
 
@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
 @Entity
@@ -28,7 +29,8 @@ public class Matiere {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE) // a completer
+	@SequenceGenerator(name = "matiereSeq", sequenceName = "matiere_seq", allocationSize = 1, initialValue = 10)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "matiereSeq")
 	public Integer getId() {
 		return id;
 	}

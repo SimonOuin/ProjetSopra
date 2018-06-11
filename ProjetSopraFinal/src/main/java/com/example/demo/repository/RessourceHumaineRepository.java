@@ -3,8 +3,8 @@ package com.example.demo.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
-import model.Adresse;
-import model.RessourceHumaine;
+import com.example.demo.model.Adresse;
+import com.example.demo.model.RessourceHumaine;
 
 public interface RessourceHumaineRepository extends JpaRepository<RessourceHumaine, Long>{
 

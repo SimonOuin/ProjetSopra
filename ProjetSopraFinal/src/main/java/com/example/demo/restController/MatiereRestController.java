@@ -17,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.demo.jsonview.JsonViews;
 import com.example.demo.model.Matiere;
+import com.example.demo.model.Module;
 import com.example.demo.repository.MatiereRepository;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -67,6 +68,17 @@ public class MatiereRestController {
 			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return response;
+	}
+	
+	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+	public ResponseEntity<Void> deleteMatiere(@PathVariable(name = "id") Long id){
+		Optional<Matiere> opt = matiereRepository.findById(id);
+		if (opt.isPresent()) {
+			matiereRepository.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}	
 	}
 
 	@JsonView(JsonViews.Common.class)

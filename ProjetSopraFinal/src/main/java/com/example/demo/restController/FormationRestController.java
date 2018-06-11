@@ -18,6 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.demo.jsonview.JsonViews;
 import com.example.demo.model.Formation;
+import com.example.demo.model.Matiere;
 import com.example.demo.repository.FormationRepository;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -68,6 +69,17 @@ public class FormationRestController {
 			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return response;
+	}
+	
+	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+	public ResponseEntity<Void> deleteFormation(@PathVariable(name = "id") Long id){
+		Optional<Formation> opt = formationRepository.findById(id);
+		if (opt.isPresent()) {
+			formationRepository.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}	
 	}
 
 	@JsonView(JsonViews.Common.class)

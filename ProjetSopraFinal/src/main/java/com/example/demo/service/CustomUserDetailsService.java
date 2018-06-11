@@ -4,6 +4,8 @@ import com.example.demo.model.*;
 import com.example.demo.repository.RessourceHumaineRepository;
 import com.example.demo.repository.RessourceHumaineRoleRepository;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,11 +22,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
-		RessourceHumaine rh= RHRepository.findByLogin(arg0);
-		if (rh == null) {
+		Optional<RessourceHumaine> opt= RHRepository.findByLogin(arg0);
+		if (!opt.isPresent()) {
 			throw new UsernameNotFoundException("utilisateur inconnu");
 		}
-		return new CustomUserDetails(rh, RHRoleRepository.findCustomRoleByLogin(arg0));
+		return new CustomUserDetails(opt.get(), RHRoleRepository.findCustomRoleByLogin(arg0));
 
 	}
 

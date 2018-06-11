@@ -3,7 +3,6 @@ package com.example.demo.restController;
 import java.util.List;
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -119,7 +118,10 @@ public class RessourceHumaineRestController {
 			personneEnBase.setAdresse(formateur.getAdresse());
 			personneEnBase.setPrenom(formateur.getPrenom());
 			personneEnBase.setNom(formateur.getNom());
-			
+			personneEnBase.setEmail(formateur.getEmail());
+			personneEnBase.setTel(formateur.getTel());
+			personneEnBase.setLogin(formateur.getLogin());
+			personneEnBase.setMdp(formateur.getMdp());
 			ressourceHumaineRepository.save(personneEnBase);
 			response=  new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
 			
@@ -128,6 +130,94 @@ public class RessourceHumaineRestController {
 		}
 		return response;
 	}
+	
+	@RequestMapping(path = { "/gestionnaire", "/gestionnaire/" }, method = RequestMethod.PUT)
+	public ResponseEntity<RessourceHumaine> updateGestionnaire(@RequestBody Gestionnaire gestionnaire, BindingResult br) {
+		ResponseEntity<RessourceHumaine> response = null;
+		if (gestionnaire.getId() == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findById(gestionnaire.getId());
+		if (opt.isPresent()) {
+			RessourceHumaine personneEnBase=opt.get();
+			personneEnBase.setAdresse(gestionnaire.getAdresse());
+			personneEnBase.setPrenom(gestionnaire.getPrenom());
+			personneEnBase.setNom(gestionnaire.getNom());
+			personneEnBase.setEmail(gestionnaire.getEmail());
+			personneEnBase.setTel(gestionnaire.getTel());
+			personneEnBase.setLogin(gestionnaire.getLogin());
+			personneEnBase.setMdp(gestionnaire.getMdp());
+			ressourceHumaineRepository.save(personneEnBase);
+			response=  new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+			
+		} else {
+			response= new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return response;
+	}
+	
+	@RequestMapping(path = { "/technicien", "/technicien/" }, method = RequestMethod.PUT)
+	public ResponseEntity<RessourceHumaine> updateTechnicien(@RequestBody Technicien technicien, BindingResult br) {
+		ResponseEntity<RessourceHumaine> response = null;
+		if (technicien.getId() == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findById(technicien.getId());
+		if (opt.isPresent()) {
+			RessourceHumaine personneEnBase=opt.get();
+			personneEnBase.setAdresse(technicien.getAdresse());
+			personneEnBase.setPrenom(technicien.getPrenom());
+			personneEnBase.setNom(technicien.getNom());
+			personneEnBase.setEmail(technicien.getEmail());
+			personneEnBase.setTel(technicien.getTel());
+			personneEnBase.setLogin(technicien.getLogin());
+			personneEnBase.setMdp(technicien.getMdp());
+			ressourceHumaineRepository.save(personneEnBase);
+			response=  new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+			
+		} else {
+			response= new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return response;
+	}
+	
+	@RequestMapping(path = { "/stagiaire", "/stagiaire/" }, method = RequestMethod.PUT)
+	public ResponseEntity<RessourceHumaine> updateStagiaire(@RequestBody Stagiaire stagiaire, BindingResult br) {
+		ResponseEntity<RessourceHumaine> response = null;
+		if (stagiaire.getId() == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findById(stagiaire.getId());
+		if (opt.isPresent()) {
+			RessourceHumaine personneEnBase=opt.get();
+			personneEnBase.setAdresse(stagiaire.getAdresse());
+			personneEnBase.setPrenom(stagiaire.getPrenom());
+			personneEnBase.setNom(stagiaire.getNom());
+			personneEnBase.setEmail(stagiaire.getEmail());
+			personneEnBase.setTel(stagiaire.getTel());
+			personneEnBase.setLogin(stagiaire.getLogin());
+			personneEnBase.setMdp(stagiaire.getMdp());
+			ressourceHumaineRepository.save(personneEnBase);
+			response=  new ResponseEntity<RessourceHumaine>(opt.get(), HttpStatus.OK);
+			
+		} else {
+			response= new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return response;
+	}
+	
+	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable(name = "id") Long id){
+		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findById(id);
+		if (opt.isPresent()) {
+			ressourceHumaineRepository.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+	}
+	
 
 	@JsonView(JsonViews.Common.class)
 	@RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
@@ -145,4 +235,6 @@ public class RessourceHumaineRestController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
+	
+	
 }

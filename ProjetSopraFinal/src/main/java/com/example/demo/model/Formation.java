@@ -17,7 +17,7 @@ import javax.persistence.Version;
 
 @Entity
 public class Formation {
-	private Integer id;
+	private Long id;
 	private Set<Stagiaire> stagiaires;
 	private Set<Module> modules;
 	private Date dateDebut;
@@ -35,13 +35,13 @@ public class Formation {
 	@Id
 	@SequenceGenerator(name = "formationSeq", sequenceName = "formation_seq", allocationSize = 1, initialValue = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "formationSeq")
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
 
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

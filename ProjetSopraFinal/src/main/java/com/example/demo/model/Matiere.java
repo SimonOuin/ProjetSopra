@@ -12,7 +12,7 @@ import javax.persistence.Version;
 
 @Entity
 public class Matiere {
-	private Integer id;
+	private Long id;
 	private String titre;
 	private Integer dureeProg;
 	private String objectif;
@@ -31,13 +31,13 @@ public class Matiere {
 	@Id
 	@SequenceGenerator(name = "matiereSeq", sequenceName = "matiere_seq", allocationSize = 1, initialValue = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "matiereSeq")
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
 
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -19,7 +19,7 @@ import javax.persistence.Version;
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 1)
 public abstract class RessourceHumaine {
 
-	private Integer id;
+	private Long id;
 	private String nom;
 	private String prenom;
 	private Integer tel;
@@ -39,13 +39,13 @@ public abstract class RessourceHumaine {
 	@Id
 	@SequenceGenerator(name = "rhSeq", sequenceName = "rh_seq", allocationSize = 1, initialValue = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rhSeq")
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
 
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

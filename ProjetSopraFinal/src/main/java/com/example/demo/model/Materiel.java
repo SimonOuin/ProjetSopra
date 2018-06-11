@@ -18,7 +18,7 @@ import javax.persistence.Version;
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 2)
 public abstract class Materiel {
 	
-	private Integer code;
+	private Long code;
 	private Integer cout;
 	private int version;
 	
@@ -29,12 +29,12 @@ public abstract class Materiel {
 	@Id
 	@SequenceGenerator(name = "materielSeq", sequenceName = "materiel_seq", allocationSize = 1, initialValue = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "materielSeq")
-	public Integer getCode() {
+	public Long getCode() {
 		return code;
 	}
 
 
-	public void setCode(Integer code) {
+	public void setCode(Long code) {
 		this.code = code;
 	}
 

@@ -1,5 +1,6 @@
 package com.example.demo.restController;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.demo.jsonview.JsonViews;
+import com.example.demo.model.Formateur;
+import com.example.demo.model.Matiere;
 import com.example.demo.model.Module;
+import com.example.demo.model.Salle;
 import com.example.demo.repository.ModuleRepository;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -71,7 +75,7 @@ public class ModuleRestController {
 	}
 	
 	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable(name = "id") Long id){
+	public ResponseEntity<Void> deleteModule(@PathVariable(name = "id") Long id){
 		Optional<Module> opt = moduleRepository.findById(id);
 		if (opt.isPresent()) {
 			moduleRepository.deleteById(id);
@@ -99,4 +103,49 @@ public class ModuleRestController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{salle}", method = RequestMethod.GET)
+	public ResponseEntity<Module> findBySalle(@PathVariable(name = "salle") Salle salle) {
+		Optional<Module> opt = moduleRepository.findBySalle(salle);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Module>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{formateur}", method = RequestMethod.GET)
+	public ResponseEntity<Module> findByFormateur(@PathVariable(name = "formateur") Formateur formateur) {
+		Optional<Module> opt = moduleRepository.findByFormateur(formateur);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Module>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{matiere}", method = RequestMethod.GET)
+	public ResponseEntity<Module> findByMatiere(@PathVariable(name = "matiere") Matiere matiere) {
+		Optional<Module> opt = moduleRepository.findByMatiere(matiere);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Module>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@JsonView(JsonViews.Common.class)
+	@RequestMapping(value = "/{DateDebut}", method = RequestMethod.GET)
+	public ResponseEntity<Module> findByDateDebut(@PathVariable(name = "DateDebut") Date DateDebut) {
+		Optional<Module> opt = moduleRepository.findByDateDebut(DateDebut);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Module>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
 }

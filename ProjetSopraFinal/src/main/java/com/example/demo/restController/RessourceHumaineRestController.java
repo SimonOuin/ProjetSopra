@@ -207,7 +207,7 @@ public class RessourceHumaineRestController {
 	}
 	
 	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable(name = "id") Long id){
+	public ResponseEntity<Void> deleteRH(@PathVariable(name = "id") Long id){
 		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findById(id);
 		if (opt.isPresent()) {
 			ressourceHumaineRepository.deleteById(id);

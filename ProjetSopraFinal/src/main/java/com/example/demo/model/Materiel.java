@@ -12,6 +12,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "materiel")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -26,6 +29,7 @@ public abstract class Materiel {
 
 	}
 
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@SequenceGenerator(name = "materielSeq", sequenceName = "materiel_seq", allocationSize = 1, initialValue = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "materielSeq")
@@ -38,7 +42,7 @@ public abstract class Materiel {
 		this.code = code;
 	}
 
-
+	@JsonView(JsonViews.Common.class)
 	public Integer getCout() {
 		return cout;
 	}

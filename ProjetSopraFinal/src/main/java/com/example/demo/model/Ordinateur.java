@@ -4,6 +4,10 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("O")
 public class Ordinateur extends Materiel {
@@ -20,7 +24,7 @@ public class Ordinateur extends Materiel {
 
 	}
 
-
+	@JsonView(JsonViews.Common.class)
 	public String getProcesseur() {
 		return processeur;
 	}
@@ -30,7 +34,7 @@ public class Ordinateur extends Materiel {
 		this.processeur = processeur;
 	}
 
-
+	@JsonView(JsonViews.Common.class)
 	public Integer getRam() {
 		return ram;
 	}
@@ -40,7 +44,7 @@ public class Ordinateur extends Materiel {
 		this.ram = ram;
 	}
 
-
+	@JsonView(JsonViews.Common.class)
 	public Integer getDisqueDur() {
 		return disqueDur;
 	}
@@ -50,7 +54,7 @@ public class Ordinateur extends Materiel {
 		this.disqueDur = disqueDur;
 	}
 
-
+	@JsonView(JsonViews.Common.class)
 	public Integer getAnnee() {
 		return annee;
 	}
@@ -59,7 +63,6 @@ public class Ordinateur extends Materiel {
 	public void setAnnee(Integer annee) {
 		this.annee = annee;
 	}
-
 
 	@OneToOne
 	public Stagiaire getStagiaire() {

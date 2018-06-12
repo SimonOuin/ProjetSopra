@@ -1,3 +1,9 @@
+import {Salle} from './salle';
+import {Formateur} from './formateur';
+import {Matiere} from './matiere';
+import {VideoProjecteur} from './videoProjecteur';
+import {Formation} from './formation';
+
 
 export class Module {
 
@@ -12,31 +18,31 @@ export class Module {
     this._id = _id;
   }
 
-  public get salle(): object {
+  public get salle(): Salle {
     return this._salle
   }
-  public set salle(_salle: object) {
+  public set salle(_salle: Salle) {
     this._salle = _salle;
   }
 
-  public get formateur(): object {
+  public get formateur(): Formateur {
     return this._formateur
   }
-  public set formateur(_formateur: object) {
+  public set formateur(_formateur: Formateur) {
     this._formateur = _formateur;
   }
 
-  public get matiere(): object {
+  public get matiere(): Matiere {
     return this._matiere
   }
-  public set matiere(_matiere: object) {
+  public set matiere(_matiere: Matiere) {
     this._matiere = _matiere;
   }
 
-  public get videoProjecteur(): object {
+  public get videoProjecteur(): VideoProjecteur {
     return this._videoProjecteur
   }
-  public set videoProjecteur(_videoProjecteur: object) {
+  public set videoProjecteur(_videoProjecteur: VideoProjecteur) {
     this._videoProjecteur = _videoProjecteur;
   }
 
@@ -47,10 +53,10 @@ export class Module {
     this._dateDebut = _dateDebut;
   }
 
-  public get formation(): object {
+  public get formation(): Formation {
     return this._formation
   }
-  public set formation(_formation: object) {
+  public set formation(_formation: Formation) {
     this._formation = _formation;
   }
 }

@@ -1,3 +1,5 @@
+import {Adresse} from './adresse';
+
 export class RessourceHumaine {
 
   constructor(private _id?, private _nom?, private _prenom?, private _tel?, private _email?,
@@ -53,10 +55,10 @@ export class RessourceHumaine {
     this._mdp = _mdp;
   }
 
-  public get adresse(): object {
+  public get adresse(): Adresse {
     return this._adresse
   }
-  public set adresse(_adresse: object) {
+  public set adresse(_adresse: Adresse) {
     this._adresse = _adresse;
   }
 }

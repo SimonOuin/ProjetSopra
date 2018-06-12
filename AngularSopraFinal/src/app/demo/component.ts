@@ -154,5 +154,5 @@ export class DemoComponent {
       }
     });
     this.refresh.next();
-  }
+  }   
 }

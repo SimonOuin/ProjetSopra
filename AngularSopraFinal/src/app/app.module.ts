@@ -22,19 +22,21 @@ import {MaterielService} from './service/materiel.service';
 import {MatiereService} from './service/matiere.service';
 import {ModuleService} from './service/module.service';
 import {RessourceHumaineService} from './service/ressource-humaine.service';
-import {NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
+import { FormateurDetailComponent } from './formateur/formateur-detail/formateur-detail.component';
+import {FormateurComponent} from './formateur/formateur.component';
 @NgModule({
   declarations: [
     AppComponent,
     InscriptionComponent,
-    DemoUtilsComponent,
-    InscriptionComponent
+    DemoUtilsComponent,
+    InscriptionComponent, FormateurDetailComponent, FormateurComponent
   ],
   imports: [
-    BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule
+    BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule, HttpClientModule
   ],
   providers: [RessourceHumaineService, ModuleService, MatiereService, MaterielService, FormationService, CompetenceService],
-  bootstrap: [AppComponent, DemoComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
 platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {

@@ -1,6 +1,9 @@
-export class Ordinateur {
+import {Materiel} from './materiel';
+
+export class Ordinateur extends Materiel {
 
   constructor(private _processeur?, private _ram?, private _disqueDur?, private _annee?) {
+    super();
   }
 
   public get processeur(): string {

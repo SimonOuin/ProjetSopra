@@ -1,7 +1,9 @@
 import {Formation} from './formation';
+import {RessourceHumaine} from './ressourceHumaine';
 
-export class Gestionnaire {
+export class Gestionnaire extends RessourceHumaine{
   constructor(private _formations?) {
+    super();
   }
 
   public get fromations(): Array<Formation> {

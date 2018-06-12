@@ -1,9 +1,11 @@
 import {Module} from './module';
 import {Competence} from './competence';
+import {RessourceHumaine} from './ressourceHumaine';
 
-export class Formateur {
+export class Formateur extends RessourceHumaine{
 
   constructor(private _modules?, private _competence?) {
+    super();
   }
 
   public get modules(): Array<Module> {

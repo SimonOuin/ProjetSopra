@@ -1,9 +1,11 @@
 import {Ordinateur} from './ordinateur';
 import {Formation} from './formation';
+import {RessourceHumaine} from './ressourceHumaine';
 
-export class Stagiaire {
+export class Stagiaire  extends RessourceHumaine{
 
   constructor(private _ordinateur?, private _formation?) {
+    super();
   }
 
   public get ordinateur(): Ordinateur {

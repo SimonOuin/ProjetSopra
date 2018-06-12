@@ -1,8 +1,10 @@
 import {Module} from './module';
+import {Materiel} from './materiel';
 
-export class Salle {
+export class Salle extends Materiel {
 
   constructor(private _nbDePersonne?, private _modules?) {
+    super();
   }
 
   public get nbDePersonne(): number {

@@ -1,7 +1,10 @@
 import {Module} from './module';
+import {Materiel} from './materiel';
 
-export class VideoProjecteur {
+export class VideoProjecteur extends Materiel {
+  
   constructor(private _module?) {
+    super();
   }
 
   public get module(): Module {

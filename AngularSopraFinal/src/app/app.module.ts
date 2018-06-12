@@ -27,7 +27,7 @@ import {NgModule} from '@angular/core';
   declarations: [
     AppComponent,
     InscriptionComponent,
-    DemoUtilsComponent,
+    DemoUtilsComponent,
     InscriptionComponent
   ],
   imports: [

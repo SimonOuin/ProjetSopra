@@ -236,7 +236,7 @@ public class RessourceHumaineRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{nom}", method = RequestMethod.GET)
+	@RequestMapping(value = "/nom/{nom}", method = RequestMethod.GET)
 	public ResponseEntity<RessourceHumaine> findByNom(@PathVariable(name = "nom") String nom) {
 		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByNom(nom);
 		if (opt.isPresent()) {
@@ -247,7 +247,7 @@ public class RessourceHumaineRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{prenom}", method = RequestMethod.GET)
+	@RequestMapping(value = "/prenom/{prenom}", method = RequestMethod.GET)
 	public ResponseEntity<RessourceHumaine> findByPrenom(@PathVariable(name = "prenom") String prenom) {
 		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByPrenom(prenom);
 		if (opt.isPresent()) {
@@ -258,7 +258,7 @@ public class RessourceHumaineRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{adresse}", method = RequestMethod.GET)
+	@RequestMapping(value = "/adresse/{adresse}", method = RequestMethod.GET)
 	public ResponseEntity<RessourceHumaine> findByAdresse(@PathVariable(name = "adresse") Adresse adresse) {
 		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByAdresse(adresse);
 		if (opt.isPresent()) {
@@ -269,7 +269,7 @@ public class RessourceHumaineRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{tel}", method = RequestMethod.GET)
+	@RequestMapping(value = "/tel/{tel}", method = RequestMethod.GET)
 	public ResponseEntity<RessourceHumaine> findByTel(@PathVariable(name = "tel") Integer tel) {
 		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByTel(tel);
 		if (opt.isPresent()) {
@@ -280,7 +280,7 @@ public class RessourceHumaineRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{email}", method = RequestMethod.GET)
+	@RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
 	public ResponseEntity<RessourceHumaine> findByEmail(@PathVariable(name = "email") String email) {
 		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByEmail(email);
 		if (opt.isPresent()) {
@@ -291,7 +291,7 @@ public class RessourceHumaineRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{login}", method = RequestMethod.GET)
+	@RequestMapping(value = "/login/{login}", method = RequestMethod.GET)
 	public ResponseEntity<RessourceHumaine> findByLogin(@PathVariable(name = "login") String login) {
 		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByLogin(login);
 		if (opt.isPresent()) {
@@ -302,7 +302,7 @@ public class RessourceHumaineRestController {
 	}
 	
 	@JsonView(JsonViews.Common.class)
-	@RequestMapping(value = "/{mdp}", method = RequestMethod.GET)
+	@RequestMapping(value = "/mdp/{mdp}", method = RequestMethod.GET)
 	public ResponseEntity<RessourceHumaine> findByMdp(@PathVariable(name = "mdp") String mdp) {
 		Optional<RessourceHumaine> opt = ressourceHumaineRepository.findByMdp(mdp);
 		if (opt.isPresent()) {

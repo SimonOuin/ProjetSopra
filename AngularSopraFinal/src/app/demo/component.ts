@@ -155,4 +155,8 @@ export class DemoComponent {
     });
     this.refresh.next();
   }   
+  
+  close(): void {
+    
+  }
 }

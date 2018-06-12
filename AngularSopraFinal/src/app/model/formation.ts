@@ -1,10 +1,10 @@
 import {Stagiaire} from './stagiaire';
 import {Module} from './module';
-import {Gestionaire} from './gestionaire';
+import {Gestionnaire} from './gestionnaire';
 
 export class Formation {
 
-  constructor(private _id?, private _stagiaires?, private _modules?, private _dateDebut?, private _dateFin?, private _gestionaire?) {
+  constructor(private _id?, private _stagiaires?, private _modules?, private _dateDebut?, private _dateFin?, private _gestionnaire?) {
   }
 
   public get id(): number {
@@ -35,10 +35,10 @@ export class Formation {
     this._dateDebut = _dateDebut;
   }
 
-  public get gestionaire(): object {
-    return this._gestionaire;
+  public get gestionnaire(): Gestionnaire {
+    return this._gestionnaire;
   }
-  public set gestionaire(_gestionaire: object) {
-    this._gestionaire = _gestionaire;
+  public set gestionnaire(_gestionnaire: Gestionnaire) {
+    this._gestionnaire = _gestionnaire;
   }
 }

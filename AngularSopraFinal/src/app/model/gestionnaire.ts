@@ -1,6 +1,6 @@
 import {Formation} from './formation';
 
-export class Gestionaire {
+export class Gestionnaire {
   constructor(private _formations?) {
   }
 

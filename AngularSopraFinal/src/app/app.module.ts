@@ -7,12 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { routes } from './route';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,FormsModule,RouterModule.forRoot(routes)

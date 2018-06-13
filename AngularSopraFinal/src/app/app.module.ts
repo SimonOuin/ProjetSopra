@@ -7,7 +7,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {routes} from './route';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {InscriptionStagiaireComponent} from './inscriptionStagiaire/inscriptionStagiaire.component';
 import {CalendarHeaderComponent} from './demo-utils/calendar-header.component';
@@ -23,17 +23,17 @@ import {MatiereService} from './service/matiere.service';
 import {ModuleService} from './service/module.service';
 import {RessourceHumaineService} from './service/ressource-humaine.service';
 import {NgModule} from '@angular/core';
-import {FormateurDetailComponent} from './formateur/formateur-detail/formateur-detail.component';
-import {FormateurComponent} from './formateur/formateur.component';
+import { RhDetailComponent } from './rh/rh-detail/rh-detail.component';
+import {RhComponent} from './rh/rh.component';
 @NgModule({
   declarations: [
     AppComponent,
     InscriptionStagiaireComponent,
     DemoUtilsComponent,
-    InscriptionStagiaireComponent, FormateurDetailComponent, FormateurComponent
+    InscriptionStagiaireComponent, RhDetailComponent, RhComponent
   ],
   imports: [
-    BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule, HttpClientModule, ReactiveFormsModule
+    BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule, HttpClientModule
   ],
   providers: [RessourceHumaineService, ModuleService, MatiereService, MaterielService, FormationService, CompetenceService],
   bootstrap: [AppComponent]
@@ -48,4 +48,4 @@ platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
 
   // Otherwise, log the boot error
 }).catch(err => console.error(err));
-
+ 

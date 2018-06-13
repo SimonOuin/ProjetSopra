@@ -9,7 +9,7 @@ import {HomeComponent} from './home/home.component';
 import {routes} from './route';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {InscriptionComponent} from './inscription/inscription.component';
+import {InscriptionStagiaireComponent} from './inscriptionStagiaire/inscriptionStagiaire.component';
 import {CalendarHeaderComponent} from './demo-utils/calendar-header.component';
 import {DemoComponent} from './demo/component';
 import {DemoUtilsComponent} from './demo-utils/demo-utils.component';
@@ -28,9 +28,9 @@ import {RhComponent} from './rh/rh.component';
 @NgModule({
   declarations: [
     AppComponent,
-    InscriptionComponent,
+    InscriptionStagiaireComponent,
     DemoUtilsComponent,
-    InscriptionComponent, RhDetailComponent, RhComponent
+    InscriptionStagiaireComponent, RhDetailComponent, RhComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule, HttpClientModule

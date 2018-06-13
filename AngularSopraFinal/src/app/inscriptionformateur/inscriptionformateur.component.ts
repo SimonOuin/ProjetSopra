@@ -23,7 +23,7 @@ export class InscriptionformateurComponent implements OnInit {
   private gestionnaire: Gestionnaire | any = {};
   private adresse: Adresse | any = {};
 
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute, private ressourceHumaineService: RessourceHumaineService) {}
 
   ngOnInit() {
   }

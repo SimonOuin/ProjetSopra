@@ -22,7 +22,8 @@ export class InscriptiongestionnaireComponent implements OnInit {
   private technicien: Technicien | any = {};
   private gestionnaire: Gestionnaire | any = {};
   private adresse: Adresse | any = {};
-  constructor() {}
+  
+  constructor(private router: Router, private route: ActivatedRoute, private ressourceHumaineService: RessourceHumaineService) {}
 
   ngOnInit() {
   }

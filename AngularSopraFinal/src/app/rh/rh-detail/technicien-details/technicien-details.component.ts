@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-technicien-detail',
+  selector: 'app-technicien-details',
   templateUrl: './technicien-details.component.html',
   styleUrls: ['./technicien-details.component.css']
 })

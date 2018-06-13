@@ -9,6 +9,7 @@ import {RhDetailComponent} from './rh/rh-detail/rh-detail.component';
 import {StagiaireDetailComponent} from './rh/rh-detail/stagiaire-detail/stagiaire-detail.component';
 import {TechnicienDetailsComponent} from './rh/rh-detail/technicien-details/technicien-details.component';
 import {RhComponent} from './rh/rh.component';
+import { TechnicienDetailComponent } from './technicien/technicien-detail/technicien-detail.component';
 import { TechniciensalleDetailsComponent } from './technicien/technicien-detail/techniciensalle-details/techniciensalle-details.component';
 import { TechnicienvideoDetailComponent } from './technicien/technicien-detail/technicienvideo-detail/technicienvideo-detail.component';
 import { TechnicienComponent } from './technicien/technicien.component';
@@ -24,7 +25,7 @@ export const routes: Routes = [
   {path: 'techniciendetail/:id', component: TechnicienDetailsComponent},
   {path: 'techniciendetail', component: TechnicienDetailsComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'technicien/creer', component: TechnicienDetailsComponent},
+  {path: 'technicien/creer', component: TechnicienDetailComponent},
   {path: 'technicien/creervideo', component: TechnicienvideoDetailComponent},
   {path: 'technicien/creersalle', component: TechniciensalleDetailsComponent},
   {path: 'matiere', component: MatiereComponent},

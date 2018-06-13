@@ -26,6 +26,10 @@ export class RessourceHumaineService {
   public findById(id: number): Observable<RessourceHumaine> {
     return this.http.get<RessourceHumaine>(`${this.url}/${id}`);
   }
+  
+  public findByIdFormateur(id: number): Observable<Formateur> {
+    return this.http.get<Formateur>(`${this.url}/${id}`);
+  }
 
   public findByNom(nom: string): Observable<RessourceHumaine> {
     return this.http.get<RessourceHumaine>(`${this.url}/nom/${nom}`);

@@ -13,8 +13,20 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonView;
 
+@JsonTypeInfo(
+	      use = JsonTypeInfo.Id.NAME, 
+	      include = As.PROPERTY, 
+	      property = "type")
+	    @JsonSubTypes({
+	        @JsonSubTypes.Type(value = Ordinateur.class, name = "Ordinateur"),
+	        @JsonSubTypes.Type(value = VideoProjecteur.class, name = "Vidéo-projecteur"),
+	        @JsonSubTypes.Type(value = Salle.class, name = "Salle")
+	    })
 @Entity
 @Table(name = "materiel")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

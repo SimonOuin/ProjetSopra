@@ -43,10 +43,10 @@ export class MatiereService {
   }
 
   public saveMatiere(m: Matiere): Observable<Matiere> {
-    return this.http.put<Matiere>(`${this.url}`, m);
+    return this.http.put<Matiere>(`${this.url}/matiere`, m);
   }
 
   public createMatiere(m: Matiere): Observable<any> {
-    return this.http.post<any>(`${this.url}`, m);
+    return this.http.post<any>(`${this.url}/matiere`, m);
   }
 }

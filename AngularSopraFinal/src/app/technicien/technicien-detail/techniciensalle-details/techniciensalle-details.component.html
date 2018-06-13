@@ -1,0 +1,34 @@
+<form (ngSubmit)="save()">
+	<table>
+		<tr>
+			<td>Code</td>
+			<td><input type="number" [(ngModel)]="materiel.code"
+				readonly="readonly" name="id"/></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Co&ucirc;t</td>
+			<td><input type="number" [(ngModel)]="materiel.cout" required
+				name="cout" #coutControl="ngModel" /></td>
+			<td>
+				<div *ngIf="coutControl.dirty && coutControl.invalid">Co&ucirc;t
+					obligatoire</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Nombre de personnes</td>
+			<td><input type="number" [(ngModel)]="materiel.nbDePersonnes" required
+				name="nbDePersonnes" #nbDePersonnesControl="ngModel" /></td>
+			<td>
+				<div *ngIf="nbDePersonnesControl.dirty && nbDePersonnesControl.invalid">Nombre de personnes
+					obligatoire</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<button type="submit">Enregister</button>
+				<button (click)="reset()">Annuler</button>
+			</td>
+		</tr>
+	</table>
+</form>

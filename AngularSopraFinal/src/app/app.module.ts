@@ -30,17 +30,26 @@ import { InscriptionformateurComponent } from './inscriptionformateur/inscriptio
 import { InscriptiongestionnaireComponent } from './inscriptiongestionnaire/inscriptiongestionnaire.component';
 import { GestionnaireDetailComponent } from './rh/rh-detail/gestionnaire-detail/gestionnaire-detail.component';
 import { StagiaireDetailComponent } from './rh/rh-detail/stagiaire-detail/stagiaire-detail.component';
-import { TechnicienDetailComponent } from './rh/rh-detail/technicien-detail/technicien-detail.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { TechnicienDetailsComponent } from './rh/rh-detail/technicien-details/technicien-details.component';
+import { DashboardComponent } from './dashboard/dashboard.component';import { MatiereDetailsComponent } from './matiere/matiere-details/matiere-details.component';
+import { MatiereComponent } from './matiere/matiere.component';
+import { TechnicienDetailComponent } from './technicien/technicien-detail/technicien-detail.component';
+import { TechniciensalleDetailsComponent } from './technicien/technicien-detail/techniciensalle-details/techniciensalle-details.component';
+import { TechnicienvideoDetailComponent } from './technicien/technicien-detail/technicienvideo-detail/technicienvideo-detail.component';
+import { TechnicienComponent } from './technicien/technicien.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     InscriptionStagiaireComponent,
-    DemoUtilsComponent,
+    DemoUtilsComponent, HomeComponent,
     
     InscriptionStagiaireComponent, RhDetailComponent, RhComponent, 
     InscriptiontechnicienComponent, InscriptionformateurComponent, InscriptiongestionnaireComponent,
-    GestionnaireDetailComponent, StagiaireDetailComponent, TechnicienDetailComponent, DashboardComponent
+    GestionnaireDetailComponent, StagiaireDetailComponent, TechnicienDetailsComponent, DashboardComponent,
+    TechnicienComponent, TechnicienDetailComponent, TechniciensalleDetailsComponent, TechnicienvideoDetailComponent, 
+    MatiereDetailsComponent, 
+    MatiereComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule, HttpClientModule

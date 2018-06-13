@@ -1,0 +1,28 @@
+<div>
+	<br>
+	<table>
+		<tr>
+			<th>Mat&eacute;riels</th>
+			<th>Code</th>
+			<th>Co&ucirc;t</th>
+			<th>Processeur</th>
+			<th>RAM</th>
+			<th>Disque dur</th>
+			<th>Ann&eacute;e d'achat</th>
+			<th>Nombre de Personnes</th>
+			
+		</tr>
+		<tr *ngFor="let m of liste">
+		    <td>{{m.type}}</td>
+			<td>{{m.code}}</td>
+			<td>{{m.cout}}</td>
+			<td>{{m.processeur}}</td>
+			<td>{{m.ram}}</td>
+			<td>{{m.disqueDur}}</td>
+			<td>{{m.annee}}</td>
+			<td>{{m.nbDePersonnes}}</td>
+
+		</tr>
+	</table>
+	<br> <button [routerLink]="['/technicien/creer']">Ajouter un ordinateur</button> <button [routerLink]="['/technicien/creervideo']">Ajouter un vid&eacute;o-projecteur</button> <button [routerLink]="['/technicien/creersalle']">Ajouter une salle</button>
+</div>

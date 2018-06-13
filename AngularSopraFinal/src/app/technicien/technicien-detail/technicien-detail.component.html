@@ -1,0 +1,61 @@
+<form (ngSubmit)="save()">
+	<table>
+		<tr>
+			<td>Code</td>
+			<td><input type="number" [(ngModel)]="materiel.code"
+				readonly="readonly" name="id"/></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Co&ucirc;t</td>
+			<td><input type="number" [(ngModel)]="materiel.cout" required
+				name="cout" #coutControl="ngModel" /></td>
+			<td>
+				<div *ngIf="coutControl.dirty && coutControl.invalid">Co&ucirc;t
+					obligatoire</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Processeur</td>
+			<td><input type="text" [(ngModel)]="materiel.processeur" required
+				name="processeur" #processeurControl="ngModel" /></td>
+			<td>
+				<div *ngIf="processeurControl.dirty && processeurControl.invalid">Processeur
+					obligatoire</div>
+			</td>
+		</tr>
+		<tr>
+			<td>RAM</td>
+			<td><input type="number" [(ngModel)]="materiel.ram" required
+				name="ram" #ramControl="ngModel" /></td>
+			<td>
+				<div *ngIf="ramControl.dirty && ramControl.invalid">RAM
+					obligatoire</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Disque dur</td>
+			<td><input type="number" [(ngModel)]="materiel.disqueDur" required
+				name="disqueDur" #disqueDurControl="ngModel" /></td>
+			<td>
+				<div *ngIf="disqueDurControl.dirty && disqueDurControl.invalid">Disque dur
+					obligatoire</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Ann&eacute;e</td>
+			<td><input type="text" [(ngModel)]="materiel.annee" required
+				name="annee" #anneeControl="ngModel" /></td>
+			<td>
+				<div *ngIf="anneeControl.dirty && anneeControl.invalid">Ann&eacute;e
+					obligatoire</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<button type="submit">Enregister</button>
+				<button (click)="reset()">Annuler</button>
+			</td>
+		</tr>
+	</table>
+</form>

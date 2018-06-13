@@ -5,10 +5,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-technicien-detail',
-  templateUrl: './technicien-detail.component.html',
-  styleUrls: ['./technicien-detail.component.css']
+  templateUrl: './technicien-details.component.html',
+  styleUrls: ['./technicien-details.component.css']
 })
-export class TechnicienDetailComponent implements OnInit {
+export class TechnicienDetailsComponent implements OnInit {
   
 private technicien: Technicien = new Technicien();
 

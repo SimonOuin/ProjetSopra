@@ -11,7 +11,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
 import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonView;
+
 
 @Entity
 public class Matiere {

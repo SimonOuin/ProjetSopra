@@ -1,0 +1,27 @@
+<div>
+	<br>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Titre</th>
+			<th>Dur&eacute;e du programme</th>
+			<th>Objectif</th>
+			<th>Pr&eacute;requis</th>
+			<th>Contenu</th>
+			
+		</tr>
+		<tr *ngFor="let m of liste">
+		    <td>{{m.id}}</td>
+			<td>{{m.titre}}</td>
+			<td>{{m.dureeProg}}</td>
+			<td>{{m.objectif}}</td>
+			<td>{{m.prerequis}}</td>
+			<td>{{m.contenu}}</td>
+			<td><a href="" [routerLink]="['/matiere', m.id]">Editer</a></td>
+			<td><a href="" [routerLink]="['/matiere']"
+				(click)="delete(m.id)">Supprimer</a></td>
+
+		</tr>
+	</table>
+	<br> <button [routerLink]="['/matiere/creer']">Ajouter une mati&egrave;re</button>
+</div>

@@ -18,8 +18,22 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 import com.example.demo.jsonview.JsonViews;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonView;
 
+
+@JsonTypeInfo(
+	      use = JsonTypeInfo.Id.NAME, 
+	      include = As.PROPERTY, 
+	      property = "type")
+	    @JsonSubTypes({
+	        @JsonSubTypes.Type(value = Gestionnaire.class, name = "gestionnaire"),
+	        @JsonSubTypes.Type(value = Technicien.class, name = "technicien"),
+	        @JsonSubTypes.Type(value = Formateur.class, name = "formateur"),
+	        @JsonSubTypes.Type(value = Stagiaire.class, name = "stagiaire")
+	    })
 @Entity
 @Table(name = "ressources_humaines")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

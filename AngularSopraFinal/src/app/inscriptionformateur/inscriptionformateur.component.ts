@@ -7,16 +7,14 @@ import {Technicien} from '../model/technicien';
 import {RessourceHumaineService} from '../service/ressource-humaine.service';
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 
 @Component({
-  selector: 'app-inscriptionStagiaire',
-  templateUrl: './inscriptionStagiaire.component.html',
-  styleUrls: ['./inscriptionStagiaire.component.css']
-
+  selector: 'app-inscriptionformateur',
+  templateUrl: './inscriptionformateur.component.html',
+  styleUrls: ['./inscriptionformateur.component.css']
 })
-export class InscriptionStagiaireComponent implements OnInit {
+export class InscriptionformateurComponent implements OnInit {
   [x: string]: any;
   private ressourceHumaine: RessourceHumaine | any = {};
   private formateur: Formateur | any = {};
@@ -25,7 +23,7 @@ export class InscriptionStagiaireComponent implements OnInit {
   private gestionnaire: Gestionnaire | any = {};
   private adresse: Adresse | any = {};
 
-  constructor(private router: Router, private route: ActivatedRoute, private ressourceHumaineService: RessourceHumaineService) {}
+  constructor() {}
 
   ngOnInit() {
   }
@@ -34,10 +32,8 @@ export class InscriptionStagiaireComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  public createStagiaire() {
-    console.log('create Stagiaire');
-    this.ressourceHumaineService.createStagiaire(this.stagiaire).subscribe(result => {this.home()});
+  public createFormateur() {
+     console.log('create Formateur');
+    this.ressourceHumaineService.createFormateur(this.formateur).subscribe(result => {this.home()});
   }
-
-
 }

@@ -24,13 +24,16 @@ import {ModuleService} from './service/module.service';
 import {RessourceHumaineService} from './service/ressource-humaine.service';
 import {NgModule} from '@angular/core';
 import { RhDetailComponent } from './rh/rh-detail/rh-detail.component';
-import {RhComponent} from './rh/rh.component';
+import {RhComponent} from './rh/rh.component';
+import { InscriptiontechnicienComponent } from './inscriptiontechnicien/inscriptiontechnicien.component';
+import { InscriptionformateurComponent } from './inscriptionformateur/inscriptionformateur.component';
+import { InscriptiongestionnaireComponent } from './inscriptiongestionnaire/inscriptiongestionnaire.component';
 @NgModule({
   declarations: [
     AppComponent,
     InscriptionStagiaireComponent,
     DemoUtilsComponent,
-    InscriptionStagiaireComponent, RhDetailComponent, RhComponent
+    InscriptionStagiaireComponent, RhDetailComponent, RhComponent, InscriptiontechnicienComponent, InscriptionformateurComponent, InscriptiongestionnaireComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule, HttpClientModule

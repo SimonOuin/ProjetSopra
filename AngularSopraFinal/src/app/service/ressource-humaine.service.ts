@@ -84,6 +84,6 @@ export class RessourceHumaineService {
   }
 
   public createStagiaire(s: Stagiaire): Observable<any> {
-    return this.http.post<any>(`${this.url}/ordinateur`, s);
+    return this.http.post<any>(`${this.url}/stagiaire`, s);
   }
 }

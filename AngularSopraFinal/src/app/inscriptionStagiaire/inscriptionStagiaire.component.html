@@ -12,9 +12,9 @@
 	<hr style="height: 2px; color: #839D2D; background-color: #839D2D; border: none;">
 	<fieldset class="adresse">
 		<legend>Adresse</legend>
-		<label>n&deg; de Rue</label> 			<input id="numero" name="numero" type="text" [(ngModel)]="stagiaire.numero"/><br /> 
+		<label>n&deg; de Rue</label> 			<input id="numero" name="numero" type="number" [(ngModel)]="stagiaire.numero"/><br /> 
 		<label>Rue</label> 						<input id="rue" name="rue" type="text" [(ngModel)]="stagiaire.rue"/><br /> 
-		<label>Code	postal &#9993;</label> 		<input id="code-postal" name="code-postal" type="text" [(ngModel)]="stagiaire.cp"/><br />
+		<label>Code	postal &#9993;</label> 		<input id="code-postal" name="code-postal" type="number" [(ngModel)]="stagiaire.cp"/><br />
 		<label>Ville</label> 					<input id="ville" name="ville" type="text" [(ngModel)]="stagiaire.ville"/><br />
 		<label>Pays</label> 					<input id="pays" name="pays" type="text" [(ngModel)]="stagiaire.pays"/>
 	</fieldset>
@@ -22,13 +22,13 @@
 	<fieldset class="information">
 		<legend>Informations Complementaires</legend>
 		<label>Telephone &#9743;</label> 				<input id="tel" name="tel" type="text" [(ngModel)]="stagiaire.tel"/><br /> 
-		<label>Email &#64;</label> 						<input id="email" name="email" type="text" [(ngModel)]="stagiaire.email"/><br />
+		<label>Email &#64;</label> 						<input id="email" name="email" type="email" [(ngModel)]="stagiaire.email"/><br />
 	</fieldset>
 	<hr style="height: 2px; color: #839D2D; background-color: #839D2D; border: none;">
 	<fieldset class="authentification">
 		<legend>Choix d'authentification</legend>
 		<label>Login</label> 							<input id="login" name="login" type="text" [(ngModel)]="stagiaire.login"/><br /> 
-		<label>Mot de passe</label> 					<input id="mdp" name="mdp" type="text" [(ngModel)]="stagiaire.mdp"/><br />
+		<label>Mot de passe</label> 					<input id="mdp" name="mdp" type="password" [(ngModel)]="stagiaire.mdp"/><br />
 	</fieldset>
 	<hr style="height: 2px; color: #839D2D; background-color: #839D2D; border: none;">	
 	<button type="submit">Valider inscription Stagiaire</button> 

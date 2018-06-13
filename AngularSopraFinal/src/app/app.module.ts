@@ -27,13 +27,18 @@ import { RhDetailComponent } from './rh/rh-detail/rh-detail.component';
 import {RhComponent} from './rh/rh.component';
 import { InscriptiontechnicienComponent } from './inscriptiontechnicien/inscriptiontechnicien.component';
 import { InscriptionformateurComponent } from './inscriptionformateur/inscriptionformateur.component';
-import { InscriptiongestionnaireComponent } from './inscriptiongestionnaire/inscriptiongestionnaire.component';
+import { InscriptiongestionnaireComponent } from './inscriptiongestionnaire/inscriptiongestionnaire.component';
+import { GestionnaireDetailComponent } from './rh/rh-detail/gestionnaire-detail/gestionnaire-detail.component';
+import { StagiaireDetailComponent } from './rh/rh-detail/stagiaire-detail/stagiaire-detail.component';
+import { TechnicienDetailComponent } from './rh/rh-detail/technicien-detail/technicien-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
     InscriptionStagiaireComponent,
     DemoUtilsComponent,
-    InscriptionStagiaireComponent, RhDetailComponent, RhComponent, InscriptiontechnicienComponent, InscriptionformateurComponent, InscriptiongestionnaireComponent
+    InscriptionStagiaireComponent, RhDetailComponent, RhComponent, 
+    InscriptiontechnicienComponent, InscriptionformateurComponent, InscriptiongestionnaireComponent,
+    GestionnaireDetailComponent, StagiaireDetailComponent, TechnicienDetailComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule, HttpClientModule

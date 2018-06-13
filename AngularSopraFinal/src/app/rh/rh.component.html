@@ -20,6 +20,9 @@
 		<td>{{p.login}}</td>
 		<td>{{p.mdp}}</td>
 		
-		<td><a href="" [routerLink]="['/rhdetail', p.id]" >modifier</a></td>
+		<div *ngIf="p.type=='formateur'"><td><a href="" [routerLink]="['/rhdetail', p.id]" >modifier</a></td></div>
+		<div *ngIf="p.type=='stagiaire'"><td><a href="" [routerLink]="['/stagiairedetail', p.id]" >modifier</a></td></div>
+		<div *ngIf="p.type=='gestionnaire'"><td><a href="" [routerLink]="['/gestionnairedetail', p.id]" >modifier</a></td></div>
+		<div *ngIf="p.type=='technicien'"><td><a href="" [routerLink]="['/techniciendetail', p.id]" >modifier</a></td></div>
 	</tr>
 </table>

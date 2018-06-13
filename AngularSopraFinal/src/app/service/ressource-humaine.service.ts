@@ -30,6 +30,19 @@ export class RessourceHumaineService {
   public findByIdFormateur(id: number): Observable<Formateur> {
     return this.http.get<Formateur>(`${this.url}/${id}`);
   }
+  
+  public findByIdStagiaire(id: number): Observable<Stagiaire> {
+    return this.http.get<Stagiaire>(`${this.url}/${id}`);
+  }
+  
+   public findByIdGestionnaire(id: number): Observable<Gestionnaire> {
+    return this.http.get<Gestionnaire>(`${this.url}/${id}`);
+  }
+  
+  public findByIdTechnicien(id: number): Observable<Technicien> {
+    return this.http.get<Technicien>(`${this.url}/${id}`);
+  }
+
 
   public findByNom(nom: string): Observable<RessourceHumaine> {
     return this.http.get<RessourceHumaine>(`${this.url}/nom/${nom}`);

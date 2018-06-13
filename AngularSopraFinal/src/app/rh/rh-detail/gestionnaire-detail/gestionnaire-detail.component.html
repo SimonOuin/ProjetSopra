@@ -4,14 +4,14 @@
 
 		<tr>
 			<td>id</td>
-			<td><input type="number" [(ngModel)]="formateur.id"
+			<td><input type="number" [(ngModel)]="gestionnaire.id"
 				readonly="readonly" name="id" /></td>
 			<td></td>
 		</tr>
 
 		<tr>
 			<td>prenom</td>
-			<td><input type="text" [(ngModel)]="formateur.prenom" required
+			<td><input type="text" [(ngModel)]="gestionnaire.prenom" required
 				name="prenom" #prenomControl="ngModel" /></td>
 			<td><div *ngIf="prenomControl.dirty && prenomControl.invalid">prenom
 					obligatoire</div></td>
@@ -19,7 +19,7 @@
 
 		<tr>
 			<td>nom</td>
-			<td><input type="text" [(ngModel)]="formateur.nom" required
+			<td><input type="text" [(ngModel)]="gestionnaire.nom" required
 				name="nom" #nomControl="ngModel" /></td>
 			<td><div *ngIf="nomControl.dirty && nomControl.invalid">nom
 					obligatoire</div></td>
@@ -27,57 +27,64 @@
 
 		<tr>
 			<td>telephone</td>
-			<td><input type="number" [(ngModel)]="formateur.tel" name="tel"
+			<td><input type="number" [(ngModel)]="gestionnaire.tel" name="tel"
 				#telControl="ngModel" /></td>
 		</tr>
 
 		<tr>
 			<td>email</td>
-			<td><input type="text" [(ngModel)]="formateur.email"
+			<td><input type="text" [(ngModel)]="gestionnaire.email"
 				name="email" #emailControl="ngModel" /></td>
 		</tr>
 
 		<tr>
 			<td>adresse: numero</td>
-			<td><input type="number" [(ngModel)]="formateur.adresse.numero"
+			<td><input type="number" [(ngModel)]="gestionnaire.adresse.numero"
 				name="numero" #numeroControl="ngModel" /></td>
 		</tr>
 		
 		<tr>
 			<td>adresse: rue</td>
-			<td><input type="text" [(ngModel)]="formateur.adresse.rue"
+			<td><input type="text" [(ngModel)]="gestionnaire.adresse.rue"
 				name="rue" #rueControl="ngModel" /></td>
 		</tr>
 		
 		<tr>
 			<td>adresse: code postal</td>
-			<td><input type="number" [(ngModel)]="formateur.adresse.cp"
+			<td><input type="number" [(ngModel)]="gestionnaire.adresse.cp"
 				name="cp" #cpControl="ngModel" /></td>
 		</tr>
 		
 		<tr>
 			<td>adresse: ville</td>
-			<td><input type="text" [(ngModel)]="formateur.adresse.ville"
+			<td><input type="text" [(ngModel)]="gestionnaire.adresse.ville"
 				name="ville" #villeControl="ngModel" /></td>
 		</tr>
 		
 		<tr>
 			<td>adresse: pays</td>
-			<td><input type="text" [(ngModel)]="formateur.adresse.pays"
+			<td><input type="text" [(ngModel)]="gestionnaire.adresse.pays"
 				name="pays" #paysControl="ngModel" /></td>
 		</tr>
 		
 		<tr>
 			<td>login</td>
-			<td><input type="text" [(ngModel)]="formateur.login"
+			<td><input type="text" [(ngModel)]="gestionnaire.login"
 				name="login" #loginControl="ngModel"/></td>
 			<td></td>
 		</tr>
 		
 		<tr>
 			<td>mot de passe</td>
-			<td><input type="password" [(ngModel)]="formateur.mdp"
+			<td><input type="password" [(ngModel)]="gestionnaire.mdp"
 				name="mdp" #mdpControl="ngModel"/></td>
+			<td></td>
+		</tr>
+		
+		<tr *ngFor="let f of gestionnaire.fromations">
+			<td>Formations</td>
+			<td><input type="texte" [(ngModel)]="f.id"
+				name="ide" #ideControl="ngModel"/></td>
 			<td></td>
 		</tr>
 		

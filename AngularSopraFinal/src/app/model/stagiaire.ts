@@ -5,7 +5,7 @@ import {RessourceHumaine} from './ressourceHumaine';
 export class Stagiaire  extends RessourceHumaine{
 
   constructor(private _ordinateur?, private _formation?) {
-    super();
+    super('stagiaire');
   }
 
   public get ordinateur(): Ordinateur {

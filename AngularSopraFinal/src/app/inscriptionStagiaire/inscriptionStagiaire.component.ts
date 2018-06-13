@@ -35,6 +35,7 @@ export class InscriptionStagiaireComponent implements OnInit {
 
   public createStagiaire() {
     console.log('create Stagiaire');
+    console.log(this.stagiaire);
     this.ressourceHumaineService.createStagiaire(this.stagiaire).subscribe(result => {this.home()});
   }
 

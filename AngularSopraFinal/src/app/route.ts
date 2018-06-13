@@ -2,6 +2,10 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import { DemoComponent } from './demo/component';
 import {Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
+import { InscriptionStagiaireComponent } from './inscriptionStagiaire/inscriptionStagiaire.component';
+import { InscriptionformateurComponent } from './inscriptionformateur/inscriptionformateur.component';
+import { InscriptiongestionnaireComponent } from './inscriptiongestionnaire/inscriptiongestionnaire.component';
+import { InscriptiontechnicienComponent } from './inscriptiontechnicien/inscriptiontechnicien.component';
 import { MatiereDetailsComponent } from './matiere/matiere-details/matiere-details.component';
 import { MatiereComponent } from './matiere/matiere.component';
 import {GestionnaireDetailComponent} from './rh/rh-detail/gestionnaire-detail/gestionnaire-detail.component';
@@ -25,6 +29,7 @@ export const routes: Routes = [
   {path: 'techniciendetail/:id', component: TechnicienDetailsComponent},
   {path: 'techniciendetail', component: TechnicienDetailsComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: '', component: DashboardComponent},
   {path: 'technicien/creer', component: TechnicienDetailComponent},
   {path: 'technicien/creervideo', component: TechnicienvideoDetailComponent},
   {path: 'technicien/creersalle', component: TechniciensalleDetailsComponent},
@@ -32,5 +37,10 @@ export const routes: Routes = [
   {path: 'matiere/creer', component: MatiereDetailsComponent},
   {path: 'matiere/:id', component: MatiereDetailsComponent},
   {path: 'technicien', component: TechnicienComponent},
-  {path: 'planning', component: DemoComponent}
+  {path: 'planning', component: DemoComponent},
+  {path: 'inscriptionformateur', component: InscriptionformateurComponent},
+  {path: 'inscriptionStagiaire', component: InscriptionStagiaireComponent},
+  {path: 'inscriptiongestionnaire', component: InscriptiongestionnaireComponent},
+  {path: 'inscriptiontechnicien', component: InscriptiontechnicienComponent},
+  
 ];

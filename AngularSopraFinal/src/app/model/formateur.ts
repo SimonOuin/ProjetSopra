@@ -5,7 +5,7 @@ import {RessourceHumaine} from './ressourceHumaine';
 export class Formateur extends RessourceHumaine{
 
   constructor(private _modules?, private _competence?) {
-    super();
+    super('formateur');
   }
 
   public get modules(): Array<Module> {

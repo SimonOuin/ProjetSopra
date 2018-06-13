@@ -3,7 +3,7 @@ import {RessourceHumaine} from './ressourceHumaine';
 
 export class Gestionnaire extends RessourceHumaine{
   constructor(private _formations?) {
-    super();
+    super('stagiaire');
   }
 
   public get fromations(): Array<Formation> {

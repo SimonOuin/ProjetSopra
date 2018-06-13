@@ -75,10 +75,10 @@ public class RessourceHumaineRestController {
 			UriComponentsBuilder ucb) {
 		ResponseEntity<Void> response = null;
 		if (br.hasErrors()) {
-			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		if (stagiaire.getId() != null) {
-			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} else {
 			ressourceHumaineRepository.save(stagiaire);
 			HttpHeaders header = new HttpHeaders();

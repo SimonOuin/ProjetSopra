@@ -30,15 +30,17 @@ import { InscriptionformateurComponent } from './inscriptionformateur/inscriptio
 import { InscriptiongestionnaireComponent } from './inscriptiongestionnaire/inscriptiongestionnaire.component';
 import { GestionnaireDetailComponent } from './rh/rh-detail/gestionnaire-detail/gestionnaire-detail.component';
 import { StagiaireDetailComponent } from './rh/rh-detail/stagiaire-detail/stagiaire-detail.component';
-import { TechnicienDetailComponent } from './rh/rh-detail/technicien-detail/technicien-detail.component';
+import { TechnicienDetailComponent } from './rh/rh-detail/technicien-detail/technicien-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     InscriptionStagiaireComponent,
-    DemoUtilsComponent,
+    DemoUtilsComponent,
+    
     InscriptionStagiaireComponent, RhDetailComponent, RhComponent, 
     InscriptiontechnicienComponent, InscriptionformateurComponent, InscriptiongestionnaireComponent,
-    GestionnaireDetailComponent, StagiaireDetailComponent, TechnicienDetailComponent
+    GestionnaireDetailComponent, StagiaireDetailComponent, TechnicienDetailComponent, DashboardComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule, HttpClientModule

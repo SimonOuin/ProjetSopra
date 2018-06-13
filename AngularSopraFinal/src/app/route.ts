@@ -1,3 +1,4 @@
+import { DashboardComponent } from './dashboard/dashboard.component';
 import {Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import { GestionnaireDetailComponent } from './rh/rh-detail/gestionnaire-detail/gestionnaire-detail.component';
@@ -15,5 +16,6 @@ export const routes: Routes = [
   {path: 'gestionnairedetail/:id', component: GestionnaireDetailComponent},
   {path: 'gestionnairedetail', component: GestionnaireDetailComponent},
   {path: 'techniciendetail/:id', component: TechnicienDetailComponent},
-  {path: 'techniciendetail', component: TechnicienDetailComponent}
+  {path: 'techniciendetail', component: TechnicienDetailComponent},
+  {path: 'dashboard', component: DashboardComponent}
 ];

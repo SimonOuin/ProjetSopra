@@ -7,6 +7,7 @@ import {Technicien} from '../model/technicien';
 import {RessourceHumaineService} from '../service/ressource-humaine.service';
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class InscriptionformateurComponent implements OnInit {
   }
 
   home() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
   public createFormateur() {

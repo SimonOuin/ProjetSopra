@@ -23,14 +23,14 @@ import {MatiereService} from './service/matiere.service';
 import {ModuleService} from './service/module.service';
 import {RessourceHumaineService} from './service/ressource-humaine.service';
 import {NgModule} from '@angular/core';
-import { FormateurDetailComponent } from './formateur/formateur-detail/formateur-detail.component';
-import {FormateurComponent} from './formateur/formateur.component';
+import { RhDetailComponent } from './rh/rh-detail/rh-detail.component';
+import {RhComponent} from './rh/rh.component';
 @NgModule({
   declarations: [
     AppComponent,
     InscriptionComponent,
     DemoUtilsComponent,
-    InscriptionComponent, FormateurDetailComponent, FormateurComponent
+    InscriptionComponent, RhDetailComponent, RhComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), BrowserAnimationsModule, DemoModule, HttpClientModule

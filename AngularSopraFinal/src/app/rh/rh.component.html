@@ -1,0 +1,25 @@
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Nom</th>
+		<th>Prenom</th>
+		<th>Telephone</th>
+		<th>Email</th>
+		<th>Adresse</th>
+		<th>Login</th>
+		<th>Mot de Passe</th>
+		
+	</tr>
+	<tr *ngFor="let p of liste">
+		<td>{{p.id}}</td>
+		<td>{{p.nom}}</td>
+		<td>{{p.prenom}}</td>
+		<td>{{p.tel}}</td>
+		<td>{{p.email}}</td>
+		<td>{{p.adresse.numero}} {{p.adresse.rue}} {{p.adresse.cp}} {{p.adresse.ville}} {{p.adresse.pays}}</td>
+		<td>{{p.login}}</td>
+		<td>{{p.mdp}}</td>
+		
+		<td><a href="" [routerLink]="['/rhdetail', p.id]" >modifier</a></td>
+	</tr>
+</table>

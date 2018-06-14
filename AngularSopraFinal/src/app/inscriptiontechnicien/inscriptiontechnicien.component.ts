@@ -34,6 +34,7 @@ export class InscriptiontechnicienComponent implements OnInit {
 
   public createTechnicien() {
     console.log('create technicien');
+    console.log(this.technicien);
     this.ressourceHumaineService.createTechnicien(this.technicien).subscribe(result => {this.home()});
   }
 }

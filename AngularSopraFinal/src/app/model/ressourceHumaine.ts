@@ -2,8 +2,12 @@ import {Adresse} from './adresse';
 
 export class RessourceHumaine {
 
-  constructor(private _type, private _nom?, private _prenom?, private _tel?, private _email?,
+  constructor(private _type, private _id?: number, private _nom?, private _prenom?, private _tel?, private _email?,
     private _login?, private _mdp?, private _adresse?) {
+  }
+
+  public get id(): number {
+    return this._id;
   }
 
   public get nom(): string {
